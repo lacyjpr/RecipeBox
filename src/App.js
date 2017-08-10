@@ -57,7 +57,7 @@ class App extends Component {
         return (
             <Router history={customHistory}>
                 <div>
-                    <PublicRoute auth={this.state.auth} path='/' component={Login}/>
+                    <PublicRoute auth={this.state.auth} exact path='/' component={Login}/>
                     <PublicRoute auth={this.state.auth} path='/login' component={Login}/>
                     <PrivateRoute auth={this.state.auth} path='/recipebox' component={RecipeBox}/>
                 </div>
