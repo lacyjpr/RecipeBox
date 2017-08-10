@@ -10,9 +10,7 @@ class Login extends React.Component {
 
     handleLogin() {
         return firebaseAuth().signInWithPopup(googleProvider).then((result) => {
-            //this.props.action();
             console.log('Auth worked!', result);
-            this.props.history.push('/recipebox');
         }, (error) => {
             console.log('Unable to authenticate', error);
         });

@@ -8,6 +8,7 @@ import {firebaseAuth} from './components/firebase/';
 const customHistory = createBrowserHistory();
 
 // Protect private routes credit: Tyler McGinnis https://github.com/tylermcginnis/react-router-firebase-auth/blob/master/src/components/index.js
+// Further explanation here: https://stackoverflow.com/questions/43484302/whate-does-it-mean-rest-in-react-jsx
 function PrivateRoute ({component: Component, auth, ...rest}) {
     return (
         <Route
