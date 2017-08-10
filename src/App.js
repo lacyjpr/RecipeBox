@@ -3,32 +3,63 @@ import {Redirect, Route, Router} from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Login from './components/Login';
 import RecipeBox from './components/RecipeBox';
-
+import {firebaseAuth} from './components/firebase/';
 
 const customHistory = createBrowserHistory();
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            auth: false
-        };
 
-        this.toggleAuth = this.toggleAuth.bind(this);
+// Protect private routes credit: Tyler McGinnis https://github.com/tylermcginnis/react-router-firebase-auth/blob/master/src/components/index.js
+function PrivateRoute ({component: Component, auth, ...rest}) {
+    return (
+        <Route
+            {...rest}
+            render={(props) => auth === true
+            ? <Component {...props}/>
+            : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
+        />
+    );
+}
+
+function PublicRoute ({component: Component, auth, ...rest}){
+    return(
+        <Route 
+            {...rest}
+            render={(props) => auth === false
+            ? <Component {...props}/>
+            : <Redirect to='/recipebox'/>}
+        />
+    );
+}
+
+class App extends Component {
+    state = {
+        auth: false
+    };
+
+    componentDidMount() {
+        this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({
+                    auth: true
+                });
+            } else {
+                this.setState({
+                    auth: false
+                });
+            }
+        });
     }
 
-    toggleAuth() {
-        this.setState({
-            auth: !this.state.auth.value
-        }); 
+    componentWillUnmount() {
+        this.removeListener()
     }
 
     render() {
-        // pass props in router v4 credit: https://stackoverflow.com/questions/41005697/passing-props-to-react-router-4-0-0-children-routes
         return (
             <Router history={customHistory}>
                 <div>
-                    <Route path='/login' render={(props) => <Login action={this.toggleAuth} {...props} auth={this.state.auth}/>} />
-                    <Route path='/recipebox' render={() => <RecipeBox auth={this.state.auth}/>} />
+                    <PublicRoute auth={this.state.auth} path='/' component={Login}/>
+                    <PublicRoute auth={this.state.auth} path='/login' component={Login}/>
+                    <PrivateRoute auth={this.state.auth} path='/recipebox' component={RecipeBox}/>
                 </div>
             </Router>
         );

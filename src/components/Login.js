@@ -8,25 +8,15 @@ class Login extends React.Component {
         this.handleLogin = this.handleLogin.bind(this); 
     }
 
-    componentWillMount(){
-        console.log('componentWillMount', this.props.auth);
-        if (this.props.auth) {
-            this.props.history.push('/recipebox');
-        } else {
-            this.props.history.push('/login');
-        }
-    }
-
     handleLogin() {
         return firebaseAuth().signInWithPopup(googleProvider).then((result) => {
-            this.props.action();
+            //this.props.action();
             console.log('Auth worked!', result);
             this.props.history.push('/recipebox');
         }, (error) => {
             console.log('Unable to authenticate', error);
         });
     }
-
 
     render() {
         return(
