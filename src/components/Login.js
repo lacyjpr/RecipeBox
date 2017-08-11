@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Redux from 'react-redux';
+import {connect} from 'react-redux';
 
 import * as actions from './../actions/actions';
 
@@ -27,4 +28,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default connect()(Login);

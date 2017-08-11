@@ -1,5 +1,5 @@
 import React from 'react';
-import {firebaseAuth} from './firebase/';
+import {firebaseAuth} from './../firebase/';
 
 class RecipeBox extends React.Component {
     constructor(props) {
