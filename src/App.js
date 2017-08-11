@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import {Redirect, Route, Router} from 'react-router-dom';
+import {Provider} from 'react-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
+
+import {configure} from './store/configureStore';
 import Login from './components/Login';
 import RecipeBox from './components/RecipeBox';
-import {firebaseAuth} from './components/firebase/';
+import {firebaseAuth} from './firebase/';
 
 const customHistory = createBrowserHistory();
+const store = configure();
 
 // Protect private routes credit: Tyler McGinnis https://github.com/tylermcginnis/react-router-firebase-auth/blob/master/src/components/index.js
 // Further explanation here: https://stackoverflow.com/questions/43484302/whate-does-it-mean-rest-in-react-jsx
@@ -56,13 +60,15 @@ class App extends Component {
 
     render() {
         return (
-            <Router history={customHistory}>
-                <div>
-                    <PublicRoute auth={this.state.auth} exact path='/' component={Login}/>
-                    <PublicRoute auth={this.state.auth} path='/login' component={Login}/>
-                    <PrivateRoute auth={this.state.auth} path='/recipebox' component={RecipeBox}/>
-                </div>
-            </Router>
+            <Provider store={store}>
+                <Router history={customHistory}>
+                    <div>
+                        <PublicRoute auth={this.state.auth} exact path='/' component={Login}/>
+                        <PublicRoute auth={this.state.auth} path='/login' component={Login}/>
+                        <PrivateRoute auth={this.state.auth} path='/recipebox' component={RecipeBox}/>
+                    </div>
+                </Router>
+            </Provider>
         );
     }
 }

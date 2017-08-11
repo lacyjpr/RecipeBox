@@ -1,5 +1,7 @@
 import React from 'react';
-import {firebaseAuth, googleProvider} from './firebase/';
+import * as Redux from 'react-redux';
+
+import * as actions from './../actions/actions';
 
 class Login extends React.Component {
     constructor(props) {
@@ -9,11 +11,9 @@ class Login extends React.Component {
     }
 
     handleLogin() {
-        return firebaseAuth().signInWithPopup(googleProvider).then((result) => {
-            console.log('Auth worked!', result);
-        }, (error) => {
-            console.log('Unable to authenticate', error);
-        });
+        let {dispatch} = this.props;
+
+        dispatch(actions.startLogin);
     }
 
     render() {
