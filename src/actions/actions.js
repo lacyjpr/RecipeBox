@@ -1,4 +1,4 @@
-import firebase, {firebaseAuth, googleProvider} from './../firebase/';
+import firebase, {googleProvider} from './../firebase/';
 
 export const login = (uid) => {
     return {
@@ -9,16 +9,17 @@ export const login = (uid) => {
 
 export function startLogin() {
     console.log('startLogin');
-    return (dispatch, getState) => {
-        console.log('return dispatch etc');
-        return firebase.auth().signInWithPopup(googleProvider).then((result) =>{
+    return function(dispatch) {
+        console.log('dispatch');
+        firebase.auth().signInWithPopup(googleProvider)
+        .then((result) =>{
             console.log('Auth worked!', result);
-            dispatch(login(result.user.uid));
+            dispatch({type: 'LOGIN', payload: result.uid});
         }, (error) => {
             console.log('Unable to auth', error);
         });
     };
-};
+}
 
 export const logout = () => {
     return {
