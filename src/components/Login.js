@@ -12,9 +12,9 @@ class Login extends React.Component {
     }
 
     handleLogin() {
-        let {dispatch} = this.props;
+        //let {dispatch} = this.props;
 
-        dispatch(actions.startLogin);
+        this.props.dispatch(actions.startLogin);
     }
 
     render() {

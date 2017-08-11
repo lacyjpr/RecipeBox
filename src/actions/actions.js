@@ -14,7 +14,7 @@ export function startLogin() {
         firebase.auth().signInWithPopup(googleProvider)
         .then((result) =>{
             console.log('Auth worked!', result);
-            dispatch({type: 'LOGIN', payload: result.uid});
+            dispatch(login());
         }, (error) => {
             console.log('Unable to auth', error);
         });
