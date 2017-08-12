@@ -7,7 +7,7 @@ export const login = (uid) => {
     };
 };
 
-export function startLogin() {
+export const startLogin = () => {
     return function(dispatch) {
         firebase.auth().signInWithPopup(googleProvider)
         .then((result) =>{
@@ -17,7 +17,7 @@ export function startLogin() {
             console.log('Unable to auth', error);
         });
     };
-}
+};
 
 export const logout = () => {
     return {
