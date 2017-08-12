@@ -1,7 +1,6 @@
 import firebase, {googleProvider} from './../firebase/';
 
 export const login = (uid) => {
-    console.log(uid);
     return {
         type: 'LOGIN',
         uid
