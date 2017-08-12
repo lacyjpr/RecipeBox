@@ -14,5 +14,5 @@ export const configure = (initialState = {}) => {
     const store = Redux.createStore(reducers, initialState, enhancer);
 
     return store;
-}
+};
 

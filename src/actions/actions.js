@@ -8,9 +8,7 @@ export const login = (uid) => {
 };
 
 export function startLogin() {
-    console.log('startLogin');
     return function(dispatch) {
-        console.log('dispatch');
         firebase.auth().signInWithPopup(googleProvider)
         .then((result) =>{
             console.log('Auth worked!', result);
