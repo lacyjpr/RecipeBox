@@ -11,7 +11,7 @@ class Login extends React.Component {
     }
 
     handleLogin() {
-        let {dispatch} = this.props;
+        const {dispatch} = this.props;
 
         dispatch(startLogin());
     }
