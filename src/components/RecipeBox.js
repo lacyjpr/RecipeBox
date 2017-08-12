@@ -8,6 +8,7 @@ class RecipeBox extends React.Component {
         super(props);
 
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
     }
 
     handleLogout() {
@@ -16,11 +17,16 @@ class RecipeBox extends React.Component {
         dispatch(startLogout());
     }
 
+    handleAdd() {
+        this.props.history.push('/addrecipe');
+    }
+
     render() {
         return(
             <div>
                 <h1>Recipe Box Component</h1>
                 <button type='button' onClick={this.handleLogout}>Logout</button>
+                <button type='button' onClick={this.handleAdd}>Add Recipe</button>
             </div>
         );
     }

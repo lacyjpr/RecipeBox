@@ -5,7 +5,7 @@ import {authReducer} from '../reducers/reducers';
 
 export const configure = (initialState = {}) => {
     const reducers = Redux.combineReducers({
-        authInfo: authReducer
+        users: authReducer
     });
     
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
