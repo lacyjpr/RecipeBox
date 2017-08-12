@@ -1,4 +1,4 @@
-export function reducer (state = {}, action) {
+export function authReducer (state = {}, action) {
     switch (action.type) {
     case 'LOGIN':
         return {
@@ -9,4 +9,4 @@ export function reducer (state = {}, action) {
     default:
         return state;    
     }
-};
+}

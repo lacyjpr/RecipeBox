@@ -11,7 +11,9 @@ class Login extends React.Component {
     }
 
     handleLogin() {
-        dispatch(this.props.startLogin());
+        let {dispatch} = this.props;
+
+        dispatch(startLogin());
     }
 
     render() {
@@ -26,5 +28,5 @@ class Login extends React.Component {
 }
 
 export default connect(state => {
-    state.authInfo
+    state.auth
 })(Login);

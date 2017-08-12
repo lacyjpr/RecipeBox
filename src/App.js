@@ -3,13 +3,13 @@ import {Redirect, Route, Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-import {configure} from './store/configureStore';
+import {configure} from './store/store';
 import Login from './components/Login';
 import RecipeBox from './components/RecipeBox';
 import {firebaseAuth} from './firebase/';
 
-const customHistory = createBrowserHistory();
 const store = configure();
+const customHistory = createBrowserHistory();
 
 // Protect private routes credit: Tyler McGinnis https://github.com/tylermcginnis/react-router-firebase-auth/blob/master/src/components/index.js
 // Further explanation here: https://stackoverflow.com/questions/43484302/whate-does-it-mean-rest-in-react-jsx
@@ -55,7 +55,7 @@ class App extends Component {
     }
 
     componentWillUnmount() {
-        this.removeListener()
+        this.removeListener();
     }
 
     render() {
