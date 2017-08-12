@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import { startLogin } from './../actions/actions';
+import {startLogin} from './../actions/actions';
 
 class Login extends React.Component {
     constructor(props) {
@@ -27,6 +27,4 @@ class Login extends React.Component {
     }
 }
 
-export default connect(state => {
-    return {auth: state.auth};
-})(Login);
+export default connect()(Login);

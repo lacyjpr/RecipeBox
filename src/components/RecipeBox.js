@@ -1,5 +1,7 @@
 import React from 'react';
-import {firebaseAuth} from './../firebase/';
+import {connect} from 'react-redux';
+
+import {startLogout} from './../actions/actions';
 
 class RecipeBox extends React.Component {
     constructor(props) {
@@ -9,7 +11,9 @@ class RecipeBox extends React.Component {
     }
 
     handleLogout() {
-        return firebaseAuth().signOut();
+        const {dispatch} = this.props;
+
+        dispatch(startLogout());
     }
 
     render() {
@@ -22,4 +26,4 @@ class RecipeBox extends React.Component {
     }
 }
 
-export default RecipeBox;
+export default connect()(RecipeBox);

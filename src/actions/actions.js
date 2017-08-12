@@ -1,6 +1,7 @@
 import firebase, {googleProvider} from './../firebase/';
 
 export const login = (uid) => {
+    console.log(uid);
     return {
         type: 'LOGIN',
         uid
@@ -12,7 +13,7 @@ export function startLogin() {
         firebase.auth().signInWithPopup(googleProvider)
         .then((result) =>{
             console.log('Auth worked!', result);
-            dispatch(login());
+            dispatch(login(result.user.uid));
         }, (error) => {
             console.log('Unable to auth', error);
         });
