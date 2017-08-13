@@ -7,7 +7,6 @@ import {configure} from './store/store';
 import {firebaseAuth} from './firebase/';
 import Login from './components/Login';
 import RecipeBox from './components/RecipeBox';
-import AddRecipe from './components/AddRecipe';
 
 
 const store = configure();
@@ -67,7 +66,6 @@ class App extends Component {
                         <PublicRoute auth={this.state.auth} exact path='/' component={Login}/>
                         <PublicRoute auth={this.state.auth} path='/login' component={Login}/>
                         <PrivateRoute auth={this.state.auth} path='/recipebox' component={RecipeBox}/>
-                        <Route auth={this.state.auth} path='/addrecipe' component={AddRecipe}/>
                     </div>
                 </Router>
             </Provider>
