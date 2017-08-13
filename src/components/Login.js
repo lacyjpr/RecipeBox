@@ -29,6 +29,6 @@ class Login extends React.Component {
 
 export default connect(
     (state) => {
-        return state;
+        return state.auth;
     }
 )(Login);

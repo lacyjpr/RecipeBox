@@ -49,7 +49,7 @@ export const startAddRecipe = (recipeName, imageURL, ingredients, directions) =>
             ingredients,
             directions
         };
-        const uid = getState().auth.uid;
+        const {uid} = getState();
         const recipeRef = firebaseRef.child(`users/${uid}/recipes`).push(recipe);
 
         return recipeRef.then(() => {
