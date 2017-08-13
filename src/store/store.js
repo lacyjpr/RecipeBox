@@ -1,11 +1,12 @@
 import * as Redux from 'redux';
 import thunk from 'redux-thunk';
 
-import {authReducer} from '../reducers/reducers';
+import {authReducer, recipesReducer} from '../reducers/reducers';
 
 export const configure = (initialState = {}) => {
     const reducers = Redux.combineReducers({
-        users: authReducer
+        auth: authReducer,
+        recipes: recipesReducer
     });
     
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;

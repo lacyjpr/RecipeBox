@@ -40,4 +40,8 @@ class RecipeBox extends React.Component {
     }
 }
 
-export default connect()(RecipeBox);
+export default connect(
+    (state) => {
+        return state;
+    }
+)(RecipeBox);

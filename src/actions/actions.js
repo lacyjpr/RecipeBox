@@ -1,4 +1,4 @@
-import firebase, {googleProvider} from './../firebase/';
+import firebase, {firebaseRef, googleProvider} from './../firebase/';
 
 export const login = (uid) => {
     return {
@@ -25,11 +25,38 @@ export const logout = () => {
     };
 };
 
-export var startLogout = () => {
+export const startLogout = () => {
     return (dispatch) => {
         return firebase.auth().signOut().then(() => {
             console.log('Logged out!');
             dispatch(logout());
+        });
+    };
+};
+
+export const addRecipe = (recipe) => {
+    return {
+        type: 'ADD_RECIPE',
+        recipe
+    };
+};
+
+export const startAddRecipe = (recipeName, imageURL, ingredients, directions) => {
+    return (dispatch, getState) => {
+        const recipe = {
+            recipeName,
+            imageURL,
+            ingredients,
+            directions
+        };
+        const uid = getState().auth.uid;
+        const recipeRef = firebaseRef.child(`users/${uid}/recipes`).push(recipe);
+
+        return recipeRef.then(() => {
+            dispatch(addRecipe({
+                ...recipe,
+                id: recipeRef.key
+            }));
         });
     };
 };
