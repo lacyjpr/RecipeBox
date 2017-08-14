@@ -11,9 +11,10 @@ class Recipe extends React.Component {
 
     renderRecipe = () => {
         let {recipeName, imageURL} = this.props;
+        console.log(recipeName);
         if (imageURL.length > 0){
             return (
-                <div>
+                <div >
                     <img src={imageURL} alt="Serving Suggestion"/>
                     <h4>{recipeName}</h4>
                 </div>
@@ -30,7 +31,7 @@ class Recipe extends React.Component {
     render() {
         return (
             <div>
-                {this.renderRecipe}
+                {this.renderRecipe()}
             </div>
         );
     }
