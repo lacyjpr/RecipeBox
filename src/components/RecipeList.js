@@ -6,9 +6,10 @@ import Recipe from './Recipe';
 class RecipeList extends React.Component {
     render() {
         let {recipes} = this.props;
-        console.log(recipes);
+        console.log(typeof recipes);
         let parsedRecipes = [];
-        Object.keys(recipes).forEach((id) => {parsedRecipes.push({...recipes[id], id: id})});
+        Object.keys(recipes).forEach((recipeId) => {parsedRecipes.push({...recipes[recipeId], id: recipeId});});
+        console.log(typeof parsedRecipes);
         console.log(parsedRecipes);
         let renderRecipes = () => {
             if (parsedRecipes.length === 0) {
