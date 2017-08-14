@@ -8,7 +8,7 @@ export const login = (uid) => {
 };
 
 export const startLogin = () => {
-    return function(dispatch) {
+    return (dispatch) => {
         firebase.auth().signInWithPopup(googleProvider)
         .then((result) =>{
             console.log('Auth worked!', result);
@@ -49,7 +49,7 @@ export const startAddRecipe = (recipeName, imageURL, ingredients, directions) =>
             ingredients,
             directions
         };
-        const {uid} = getState();
+        const uid = getState().auth.uid;
         console.log(uid);
         const recipeRef = firebaseRef.child(`users/${uid}/recipes`).push(recipe);
 
