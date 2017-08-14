@@ -9,10 +9,10 @@ export const configure = (initialState = {}) => {
         recipes: recipesReducer
     });
     
-    //const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
-    //const enhancer = composeEnhancers(Redux.applyMiddleware(thunk));
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || Redux.compose;
+    const enhancer = composeEnhancers(Redux.applyMiddleware(thunk));
 
-    const store = Redux.createStore(reducers, initialState, Redux.applyMiddleware(thunk));
+    const store = Redux.createStore(reducers, initialState, enhancer);
 
     return store;
 };
