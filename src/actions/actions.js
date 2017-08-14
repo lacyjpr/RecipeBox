@@ -8,11 +8,10 @@ export const login = (uid) => {
 };
 
 export const startLogin = () => {
-    return (dispatch) => {
+    return () => {
         firebase.auth().signInWithPopup(googleProvider)
         .then((result) =>{
             console.log('Auth worked!', result);
-            dispatch(login(result.user.uid));
         }, (error) => {
             console.log('Unable to auth', error);
         });
@@ -26,10 +25,9 @@ export const logout = () => {
 };
 
 export const startLogout = () => {
-    return (dispatch) => {
+    return () => {
         return firebase.auth().signOut().then(() => {
             console.log('Logged out!');
-            dispatch(logout());
         });
     };
 };
@@ -50,7 +48,6 @@ export const startAddRecipe = (recipeName, imageURL, ingredients, directions) =>
             directions
         };
         const uid = getState().auth.uid;
-        console.log(uid);
         const recipeRef = firebaseRef.child(`users/${uid}/recipes`).push(recipe);
 
         return recipeRef.then(() => {

@@ -3,6 +3,7 @@ import {Redirect, Route, Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 
+import * as actions from './actions/actions';
 import {configure} from './store/store';
 import {firebaseAuth} from './firebase/';
 import Login from './components/Login';
@@ -43,10 +44,12 @@ class App extends Component {
     componentDidMount() {
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
             if (user) {
+                store.dispatch(actions.login(user.uid));
                 this.setState({
                     auth: true
                 });
             } else {
+                store.dispatch(actions.logout());
                 this.setState({
                     auth: false
                 });
