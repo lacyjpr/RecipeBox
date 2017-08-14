@@ -27,6 +27,7 @@ class AddRecipe extends React.Component {
             this.refs.ingredients.value = '';
             this.refs.directions.value = '';
             dispatch(actions.startAddRecipe(recipeName, imageURL, ingredients, directions));
+            this.props.onClose();
         }
     }
 
