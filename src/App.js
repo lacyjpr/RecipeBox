@@ -45,6 +45,7 @@ class App extends Component {
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
             if (user) {
                 store.dispatch(actions.login(user.uid));
+                store.dispatch(actions.startAddRecipes());
                 this.setState({
                     auth: true
                 });

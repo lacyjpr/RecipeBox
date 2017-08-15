@@ -58,3 +58,31 @@ export const startAddRecipe = (recipeName, imageURL, ingredients, directions) =>
         });
     };
 };
+
+export const addRecipes = (recipes) => {
+    return {
+        type: 'ADD_RECIPES',
+        recipes
+    };
+};
+
+export const startAddRecipes = () => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const todosRef = firebaseRef.child(`users/${uid}/recipes`);
+
+        return todosRef.once('value').then((snapshot) => {
+            const recipes = snapshot.val() || {};
+            const parsedRecipes = [];
+
+            Object.keys(recipes).forEach((recipeId) => {
+                parsedRecipes.push({
+                    id: recipeId,
+                    ...recipes[recipeId]
+                });
+            });
+
+            dispatch(addRecipes(parsedRecipes));
+        });
+    };
+};

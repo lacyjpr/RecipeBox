@@ -18,6 +18,11 @@ export const recipesReducer = (state = [], action) => {
             ...state,
             action.recipe,
         ];
+    case 'ADD_RECIPES':
+        return [
+            ...state,
+            ...action.recipes
+        ];
     default: 
         return state;
     }
