@@ -18,8 +18,8 @@ class AddRecipe extends React.Component {
         let {dispatch} = this.props;
         let recipeName = this.refs.recipeName.value;
         let imageURL = this.refs.imageURL.value;
-        let ingredients = this.refs.ingredients.value.replace(/\n/g, '<br/>');
-        let directions = this.refs.directions.value.replace(/\n/g, '<br/>');
+        let ingredients = this.refs.ingredients.value.replace(/\n/g, '<br>');
+        let directions = this.refs.directions.value.replace(/\n/g, '<br>');
 
         if (recipeName.length > 0) {
             this.refs.recipeName.value = '';

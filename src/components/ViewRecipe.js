@@ -17,9 +17,9 @@ class ViewRecipe extends React.Component{
                    <img src={this.props.imageURL} alt="Serving Suggestion"/> 
                 }
                 <h4>Ingredients:</h4>
-                <p>{this.props.ingredients}</p>
+                {this.props.ingredients}
                 <h4>Directions:</h4>
-                <p>{this.props.directions}</p>
+                {this.props.directions}
                 <button onClick={this.props.onClose}>Close</button>
             </div>
         </div>
