@@ -1,12 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import * as actions from './../actions/actions';
+
+import ViewRecipe from './ViewRecipe';
 
 class Recipe extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            showRecipe: false
+        };
+
         this.renderRecipe = this.renderRecipe.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.setState({
+            showRecipe: !this.state.showRecipe
+        });
     }
 
     renderRecipe = () => {
@@ -14,14 +26,14 @@ class Recipe extends React.Component {
         console.log(recipeName);
         if (imageURL.length > 0){
             return (
-                <div >
+                <div onClick={this.handleClick}>
                     <img src={imageURL} alt="Serving Suggestion"/>
                     <h4>{recipeName}</h4>
                 </div>
             );
         } else {
             return (
-                <div>
+                <div onClick={this.handleClick}>
                     <h4>{recipeName}</h4>
                 </div>
             );
@@ -32,6 +44,7 @@ class Recipe extends React.Component {
         return (
             <div>
                 {this.renderRecipe()}
+                <ViewRecipe show={this.state.showRecipe} onClose={this.handleClick}/>
             </div>
         );
     }
