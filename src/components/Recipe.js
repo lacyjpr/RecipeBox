@@ -41,10 +41,11 @@ class Recipe extends React.Component {
     }
 
     render() {
+        let {recipeName, imageURL, ingredients, directions} = this.props;
         return (
             <div>
                 {this.renderRecipe()}
-                <ViewRecipe show={this.state.showRecipe} onClose={this.handleClick}/>
+                <ViewRecipe show={this.state.showRecipe} onClose={this.handleClick} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
             </div>
         );
     }

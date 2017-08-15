@@ -8,20 +8,19 @@ class ViewRecipe extends React.Component{
         if (!this.props.show) {
             return null;
         }
-        let {recipeName, imageURL, ingredients, directions} = this.props;
-        console.log(recipeName, imageURL, ingredients, directions);
         
         return(
         <div className="backdrop">
             <div className="modal">
-                <h3>{recipeName}</h3>
-                {imageURL &&
-                   <img src={imageURL} alt="Serving Suggestion"/> 
+                <h3>{this.props.recipeName}</h3>
+                {this.props.imageURL.length > 0 &&
+                   <img src={this.props.imageURL} alt="Serving Suggestion"/> 
                 }
-                <h3>Ingredients:</h3>
-                <p>{ingredients}</p>
-                <h3>Directions:</h3>
-                <p>{directions}</p>
+                <h4>Ingredients:</h4>
+                <p>{this.props.ingredients}</p>
+                <h4>Directions:</h4>
+                <p>{this.props.directions}</p>
+                <button onClick={this.props.onClose}>Close</button>
             </div>
         </div>
         );
