@@ -8,32 +8,39 @@ class Recipe extends React.Component {
         super(props);
 
         this.state = {
-            showRecipe: false
+            showRecipe: false,
+            editRecipe: false
         };
 
         this.renderRecipe = this.renderRecipe.bind(this);
-        this.toggleShow = this.toggleShow.bind(this);
+        this.toggleShowRecipe = this.toggleShowRecipe.bind(this);
+        this.toggleEditRecipe = this.toggleEditRecipe.bind(this);
     }
 
-    toggleShow() {
+    toggleShowRecipe() {
         this.setState({
             showRecipe: !this.state.showRecipe
         });
     }
 
+    toggleEditRecipe() {
+        this.setState({
+            editRecipe: !this.state.editRecipe
+        });
+    }
+
     renderRecipe = () => {
         let {recipeName, imageURL} = this.props;
-        console.log(recipeName);
         if (imageURL.length > 0){
             return (
-                <div onClick={this.toggleShow}>
+                <div onClick={this.toggleShowRecipe}>
                     <img src={imageURL} alt="Serving Suggestion" width={128} height={128}/>
                     <h4>{recipeName}</h4>
                 </div>
             );
         } else {
             return (
-                <div onClick={this.toggleShow}>
+                <div onClick={this.toggleShowRecipe}>
                     <h4>{recipeName}</h4>
                 </div>
             );
@@ -45,7 +52,8 @@ class Recipe extends React.Component {
         return (
             <div>
                 {this.renderRecipe()}
-                <ViewRecipe show={this.state.showRecipe} onClose={this.toggleShow} id={id} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
+                <ViewRecipe show={this.state.showRecipe} onEdit={this.toggleEditRecipe} onClose={this.toggleShowRecipe} id={id} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
+                <EditRecipe show={this.state.editRecipe} id={id} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
             </div>
         );
     }

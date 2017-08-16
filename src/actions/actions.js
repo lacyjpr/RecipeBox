@@ -87,6 +87,31 @@ export const startAddRecipes = () => {
     };
 };
 
+export const updateRecipe = (id, updates) => {
+    return {
+        type: 'UPDATE_RECIPE',
+        id,
+        updates
+    };
+};
+
+export const startSaveEditedRecipe = (id, recipeName, imageURL, ingredients, directions) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const recipeRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+        const updates = {
+            recipeName,
+            imageURL,
+            ingredients, 
+            directions
+        };
+
+        return recipeRef.update(updates).then(() => {
+            dispatch(updateRecipe(id, updates));
+        });
+    };
+};
+
 export const deleteRecipe = (id) => {
     return {
         type: 'DELETE_RECIPE',
@@ -98,9 +123,10 @@ export const startDeleteRecipe = (id) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
         const recipeRef = firebaseRef.child(`users/${uid}/recipes/${id}`);
-        console.log('deleting', id);
         return recipeRef.remove().then(() => {
             dispatch(deleteRecipe(id));
         });
     };
 };
+
+

@@ -22,6 +22,7 @@ class ViewRecipe extends React.Component{
                 <p>{this.props.ingredients}</p>
                 <h4>Directions:</h4>
                 <p>{this.props.directions}</p>
+                <button onClick={this.props.onEdit}>Edit</button>
                 <button onClick={() => {
                     dispatch(startDeleteRecipe(this.props.id));
                 }}>Delete</button>

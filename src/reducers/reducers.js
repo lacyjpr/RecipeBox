@@ -23,6 +23,17 @@ export const recipesReducer = (state = [], action) => {
             ...state,
             ...action.recipes
         ];
+    case 'UPDATE_RECIPE':
+        return state.map((recipe) => {
+            if (recipe.id === action.id) {
+                return {
+                    ...recipe,
+                    ...action.updates
+                };
+            } else {
+                return recipe;
+            }
+        });
     case 'DELETE_RECIPE':
         return state.filter((recipe) => {
             return recipe.id !== action.id;
