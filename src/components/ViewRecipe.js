@@ -14,7 +14,7 @@ class ViewRecipe extends React.Component{
             <div className="modal">
                 <h3>{this.props.recipeName}</h3>
                 {this.props.imageURL.length > 0 &&
-                   <img src={this.props.imageURL} alt="Serving Suggestion"/> 
+                   <img src={this.props.imageURL} alt="Serving Suggestion" width={128} height={128}/> 
                 }
                 <h4>Ingredients:</h4>
                 <p>{this.props.ingredients}</p>

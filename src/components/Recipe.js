@@ -27,7 +27,7 @@ class Recipe extends React.Component {
         if (imageURL.length > 0){
             return (
                 <div onClick={this.handleClick}>
-                    <img src={imageURL} alt="Serving Suggestion"/>
+                    <img src={imageURL} alt="Serving Suggestion" width={128} height={128}/>
                     <h4>{recipeName}</h4>
                 </div>
             );
