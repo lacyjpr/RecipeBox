@@ -98,7 +98,7 @@ export const startDeleteRecipe = (id) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
         const recipeRef = firebaseRef.child(`users/${uid}/recipes/${id}`);
-
+        console.log('deleting', id);
         return recipeRef.remove().then(() => {
             dispatch(deleteRecipe(id));
         });
