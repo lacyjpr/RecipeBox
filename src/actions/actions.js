@@ -98,7 +98,7 @@ export const updateRecipe = (id, updates) => {
 export const startSaveEditedRecipe = (id, recipeName, imageURL, ingredients, directions) => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
-        const recipeRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+        const recipeRef = firebaseRef.child(`users/${uid}/recipes/${id}`);
         const updates = {
             recipeName,
             imageURL,

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import ViewRecipe from './ViewRecipe';
+import EditRecipe from './EditRecipe';
 
 class Recipe extends React.Component {
     constructor(props) {
@@ -53,7 +54,7 @@ class Recipe extends React.Component {
             <div>
                 {this.renderRecipe()}
                 <ViewRecipe show={this.state.showRecipe} onEdit={this.toggleEditRecipe} onClose={this.toggleShowRecipe} id={id} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
-                <EditRecipe show={this.state.editRecipe} id={id} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
+                <EditRecipe show={this.state.editRecipe} onClose={this.toggleEditRecipe} id={id} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
             </div>
         );
     }
