@@ -12,10 +12,10 @@ class Recipe extends React.Component {
         };
 
         this.renderRecipe = this.renderRecipe.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        this.toggleShow = this.toggleShow.bind(this);
     }
 
-    handleClick() {
+    toggleShow() {
         this.setState({
             showRecipe: !this.state.showRecipe
         });
@@ -26,14 +26,14 @@ class Recipe extends React.Component {
         console.log(recipeName);
         if (imageURL.length > 0){
             return (
-                <div onClick={this.handleClick}>
+                <div onClick={this.toggleShow}>
                     <img src={imageURL} alt="Serving Suggestion" width={128} height={128}/>
                     <h4>{recipeName}</h4>
                 </div>
             );
         } else {
             return (
-                <div onClick={this.handleClick}>
+                <div onClick={this.toggleShow}>
                     <h4>{recipeName}</h4>
                 </div>
             );
@@ -41,11 +41,11 @@ class Recipe extends React.Component {
     }
 
     render() {
-        let {recipeName, imageURL, ingredients, directions} = this.props;
+        let {id, recipeName, imageURL, ingredients, directions} = this.props;
         return (
             <div>
                 {this.renderRecipe()}
-                <ViewRecipe show={this.state.showRecipe} onClose={this.handleClick} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
+                <ViewRecipe show={this.state.showRecipe} onClose={this.toggleShow} id={id} recipeName={recipeName} imageURL={imageURL} ingredients={ingredients} directions={directions}/>
             </div>
         );
     }

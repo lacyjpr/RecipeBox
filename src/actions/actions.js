@@ -86,3 +86,21 @@ export const startAddRecipes = () => {
         });
     };
 };
+
+export const deleteRecipe = (id) => {
+    return {
+        type: 'DELETE_RECIPE',
+        id
+    };
+};
+
+export const startDeleteRecipe = (id) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const recipeRef = firebaseRef.child(`users/${uid}/recipes/${id}`);
+
+        return recipeRef.remove().then(() => {
+            dispatch(deleteRecipe(id));
+        });
+    };
+};

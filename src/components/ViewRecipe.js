@@ -2,9 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import './ViewRecipe.css';
+import {startDeleteRecipe} from './../actions/actions';
 
 class ViewRecipe extends React.Component{
     render() {
+        const {dispatch} = this.props;
         if (!this.props.show) {
             return null;
         }
@@ -20,6 +22,9 @@ class ViewRecipe extends React.Component{
                 <p>{this.props.ingredients}</p>
                 <h4>Directions:</h4>
                 <p>{this.props.directions}</p>
+                <button onClick={() => {
+                    dispatch(startDeleteRecipe(this.props.id));
+                }}>Delete</button>
                 <button onClick={this.props.onClose}>Close</button>
             </div>
         </div>

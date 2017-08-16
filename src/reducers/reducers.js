@@ -23,6 +23,12 @@ export const recipesReducer = (state = [], action) => {
             ...state,
             ...action.recipes
         ];
+    case 'DELETE_RECIPE':
+        return state.filter((recipe) => {
+            return recipe.id !== action.id;
+        });
+    case 'LOGOUT':
+        return [];
     default: 
         return state;
     }
