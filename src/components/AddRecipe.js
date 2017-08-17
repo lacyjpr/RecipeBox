@@ -38,29 +38,33 @@ class AddRecipe extends React.Component {
         }
 
         return(
-            <div className="backdrop">
-                <div className="modal">
+            <div className="add-backdrop">
+                <div className="add-modal">
                     <h3>Add Recipe</h3>
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <input type="text" ref="recipeName" placeholder="Recipe Name"/>
+                            <input type="text" className="add-input" ref="recipeName" placeholder="Recipe Name"/>
                         </div>
                         <div>
-                            <input type="text" ref="imageURL" placeholder="Image URL"/>
+                            <input type="text" className="add-input" ref="imageURL" placeholder="Image URL"/>
                         </div>
                         <div>
-                            <label htmlFor="ingreds">Ingredients:</label>
+                            <div>
+                                <label htmlFor="ingreds">Ingredients:</label>
+                            </div>
                             <textarea id="ingreds" ref="ingredients"/>
                         </div>
                         <div>
-                            <label htmlFor="instructions">Directions:</label>
+                            <div>
+                                <label htmlFor="instructions">Directions:</label>
+                            </div>
                             <textarea id="instructions" ref="directions"/>
                         </div>
                          
-                        <button>Add Recipe</button>
+                        <button className="add-btn">Add Recipe</button>
                     </form>
-                    <div className="footer">
-                        <button onClick={this.props.onClose}>Close</button>
+                    <div className="add-footer">
+                        <button className="close-btn" onClick={this.props.onClose}>Close</button>
                     </div>
                 </div>
             </div>
