@@ -11,13 +11,13 @@
   text-align: center
 }
 
-#add-recipe {
+.add-recipe {
   margin: 10px; 
   background-color: #60cc60;
   color: #ffffff;
 }
 
-#log-out {
+.log-out {
   margin-bottom: 10px;
   background-color: #4285f4;
   color: #ffffff;
