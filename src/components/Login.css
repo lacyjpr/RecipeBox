@@ -1,0 +1,15 @@
+.sign-in {
+    background-color: #4285f4;
+    color: #ffffff; 
+    min-width: 90px;
+    padding:5px;
+    margin: 0;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.sign-in img {
+    width: 24px;
+    height: 24px;
+}

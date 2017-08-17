@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import './Login.css';
 import {startLogin} from './../actions/actions';
+
 
 class Login extends React.Component {
     constructor(props) {
@@ -18,9 +20,9 @@ class Login extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="sign-in-box">
                 <h1>Recipe Box</h1>
-                <button type='button' onClick={this.handleLogin}>Login with Google</button>
+                <button type='button' className="sign-in" onClick={this.handleLogin}>Sign in with Google</button>
             </div>
             
         );
