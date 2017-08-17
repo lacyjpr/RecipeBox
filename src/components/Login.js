@@ -20,9 +20,13 @@ class Login extends React.Component {
 
     render() {
         return(
-            <div className="sign-in-box">
+            <div className="big-title">
                 <h1>Recipe Box</h1>
-                <button type='button' className="sign-in" onClick={this.handleLogin}>Sign in with Google</button>
+                <div className="sign-in-box">
+                    <h1>Sign In</h1>
+                    <h4>Sign in with Google account below</h4>
+                    <button type='button' className="sign-in" onClick={this.handleLogin}>Sign in with Google</button>
+                </div>
             </div>
             
         );
