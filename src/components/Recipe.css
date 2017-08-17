@@ -7,11 +7,21 @@
   box-sizing: border-box;
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
   cursor: pointer;
-  float: left;
-  margin: 10px;
+  float: none;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
   text-align: center;
 }
 
 .recipe-card:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 555px) {
+  .recipe-card {
+    float: left;
+    margin: 10px;
+  }
 }
