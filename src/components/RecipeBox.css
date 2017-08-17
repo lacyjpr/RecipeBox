@@ -1,26 +1,25 @@
 .recipe-box {
-    position: relative;
+  position: relative;
 }
 
 .recipe-box h1 {
-    text-align: center;
+  text-align: center;
 }
 
-
 .footer {
-    text-align: left;
-    clear: both;
+  clear: both;
 }
 
 #add-recipe {
-    margin: 10px; 
-    background-color: #60cc60;
-    color: #ffffff;
+  margin: 10px; 
+  background-color: #60cc60;
+  color: #ffffff;
 }
 
 #log-out {
-    margin-left: 10px;
-    margin-bottom: 10px;
-    background-color: #4285f4;
-    color: #ffffff;
+  margin-bottom: 10px;
+  background-color: #4285f4;
+  color: #ffffff;
 }
+
+
