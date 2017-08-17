@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import ViewRecipe from './ViewRecipe';
 import EditRecipe from './EditRecipe';
+import './Recipe.css';
 
 class Recipe extends React.Component {
     constructor(props) {
@@ -34,14 +35,14 @@ class Recipe extends React.Component {
         let {recipeName, imageURL} = this.props;
         if (imageURL.length > 0){
             return (
-                <div onClick={this.toggleShowRecipe}>
-                    <img src={imageURL} alt="Serving Suggestion" width={128} height={128}/>
+                <div className="recipe-card" onClick={this.toggleShowRecipe}>
+                    <img src={imageURL} alt="Serving Suggestion" width={200} height={200}/>
                     <h4>{recipeName}</h4>
                 </div>
             );
         } else {
             return (
-                <div onClick={this.toggleShowRecipe}>
+                <div className="recipe-card" onClick={this.toggleShowRecipe}>
                     <h4>{recipeName}</h4>
                 </div>
             );

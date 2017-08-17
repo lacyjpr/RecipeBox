@@ -32,10 +32,10 @@ class RecipeBox extends React.Component {
     render() {
         return(
             <div>
-                <h1>Recipes</h1>
+                <h1>Recipe Box</h1>
                 <RecipeList/>
-                <button type='button' onClick={this.handleLogout}>Logout</button>
                 <button type='button' onClick={this.handleAdd}>Add Recipe</button>
+                <button type='button' onClick={this.handleLogout}>Logout</button>
                 <AddRecipe show={this.state.addRecipeOpen} onClose={this.handleAdd}/>
             </div>
         );
