@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import './RecipeBox.css';
 import {startLogout} from './../actions/actions';
 import AddRecipe from './AddRecipe';
 import RecipeList from './RecipeList';
@@ -31,12 +32,21 @@ class RecipeBox extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="recipe-box">
                 <h1>Recipe Box</h1>
                 <RecipeList/>
-                <button type='button' onClick={this.handleAdd}>Add Recipe</button>
-                <button type='button' onClick={this.handleLogout}>Logout</button>
                 <AddRecipe show={this.state.addRecipeOpen} onClose={this.handleAdd}/>
+                <div className="footer">
+                    <div>
+                        <button type='button' id="add-recipe" onClick={this.handleAdd}>Add Recipe</button>
+                    </div>
+                    <div>
+                        <button type='button' id="log-out" onClick={this.handleLogout}>Logout</button>
+                    </div>
+                    
+                </div>
+                
+                
             </div>
         );
     }

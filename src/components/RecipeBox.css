@@ -1,0 +1,22 @@
+.recipe-box {
+    position: relative;
+    text-align: center;
+}
+
+.footer {
+    text-align: left;
+    clear: both;
+}
+
+#add-recipe {
+    margin: 10px; 
+    background-color: #60cc60;
+    color: #ffffff;
+}
+
+#log-out {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: #4285f4;
+    color: #ffffff;
+}
