@@ -22,11 +22,11 @@ class ViewRecipe extends React.Component{
                 <p className="view-ingredients">{this.props.ingredients}</p>
                 <h4>Directions:</h4>
                 <p className="view-directions">{this.props.directions}</p>
-                <button onClick={this.props.onEdit}>Edit</button>
-                <button onClick={() => {
+                <button className="view-edit-btn" onClick={this.props.onEdit}>Edit</button>
+                <button className="view-delete-btn" onClick={() => {
                     dispatch(startDeleteRecipe(this.props.id));
                 }}>Delete</button>
-                <button onClick={this.props.onClose}>Close</button>
+                <button className="view-close-btn" onClick={this.props.onClose}>Close</button>
             </div>
         </div>
         );

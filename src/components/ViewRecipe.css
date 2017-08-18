@@ -1,39 +1,66 @@
 .view-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.3);
-    padding: 50px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.3);
+  padding: 50px;
 }
 
 .view-modal {
-    background-color: #fff;
-    border-radius: 2px;
-    width: 70vw;
-    min-height: 30%;
-    margin: 0 auto;
-    padding-top: 10px;
-    padding: 10px;
-    white-space: pre;
+  background-color: #fff;
+  border-radius: 2px;
+  width: 70vw;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding: 10px;
+  text-align: center;
+  white-space: pre;
 }
 
 .view-modal h3 {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-.view-ingredients, .view-directions {
-    margin-left: 10px;
+.view-modal h4 {
+  padding: 0;
+  margin: 0;
+}
+
+.view-modal p {
+  padding: 0;
+  margin: 0 0 0 10px;
 }
 
 .img {
-    display: none;
+  display: none;
 }
 
-@media (min-height: 1024px) {
-    .img {
-        display: inline-block;
-    }
+.view-edit-btn {
+  background-color: #60cc60;
+  color: #ffffff;
+}
+
+.view-delete-btn {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.view-close-btn {
+  background-color: #4285f4;
+  color: #ffffff;
+}
+
+@media (min-height: 680px) {
+  .img {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 555px) {
+  .view-modal {
+    width: 35vw;
+  }
 }
