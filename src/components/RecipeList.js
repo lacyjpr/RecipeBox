@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import './RecipeList.css';
 import Recipe from './Recipe';
 
 class RecipeList extends React.Component {
@@ -9,7 +10,9 @@ class RecipeList extends React.Component {
         let renderRecipes = () => {
             if (recipes.length === 0) {
                 return (
-                    <p>No Recipes Yet!</p>
+                    <div id='no-recipes'>
+                        <p>No Recipes Yet!</p>
+                    </div>
                 );
             } else {
                 return recipes.map((recipe) => {
