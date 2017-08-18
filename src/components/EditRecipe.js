@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import './AddRecipe.css';
+import './EditRecipe.css';
 import {startSaveEditedRecipe} from './../actions/actions';
 
 class EditRecipe extends React.Component {
@@ -36,29 +36,29 @@ class EditRecipe extends React.Component {
         }
 
         return(
-            <div className="backdrop">
-                <div className="modal">
+            <div className="edit-backdrop">
+                <div className="edit-modal">
                     <h3>Add Recipe</h3>
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <input type="text" ref="recipeName" defaultValue={this.props.recipeName}/>
+                            <input type="text" className="edit-input" ref="recipeName" defaultValue={this.props.recipeName}/>
                         </div>
                         <div>
-                            <input type="text" ref="imageURL" defaultValue={this.props.imageURL}/>
+                            <input type="text" className="edit-input" ref="imageURL" defaultValue={this.props.imageURL}/>
                         </div>
                         <div>
                             <label htmlFor="ingreds">Ingredients:</label>
-                            <textarea id="ingreds" ref="ingredients">{this.props.ingredients}</textarea>
+                            <textarea id="edit-ingreds" ref="ingredients">{this.props.ingredients}</textarea>
                         </div>
                         <div>
                             <label htmlFor="instructions">Directions:</label>
-                            <textarea id="instructions" ref="directions">{this.props.directions}</textarea>
+                            <textarea id="edit-instructions" ref="directions">{this.props.directions}</textarea>
                         </div>
                          
-                        <button>Save</button>
+                        <button className="edit-save">Save</button>
                     </form>
                     <div className="footer">
-                        <button onClick={this.props.onClose}>Close</button>
+                        <button className="edit-close" onClick={this.props.onClose}>Close</button>
                     </div>
                 </div>
             </div>
