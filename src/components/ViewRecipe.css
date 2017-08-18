@@ -1,4 +1,4 @@
-.backdrop {
+.view-backdrop {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -8,10 +8,10 @@
     padding: 50px;
 }
 
-.modal {
+.view-modal {
     background-color: #fff;
-    border-radius: 5px;
-    max-width: 50%;
+    border-radius: 2px;
+    width: 70vw;
     min-height: 30%;
     margin: 0 auto;
     padding-top: 10px;
@@ -19,7 +19,21 @@
     white-space: pre;
 }
 
-.modal h3 {
+.view-modal h3 {
     padding: 0;
     margin: 0;
+}
+
+.view-ingredients, .view-directions {
+    margin-left: 10px;
+}
+
+.img {
+    display: none;
+}
+
+@media (min-height: 1024px) {
+    .img {
+        display: inline-block;
+    }
 }
