@@ -51,6 +51,11 @@ class App extends Component {
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
             if (user) {
                 store.dispatch(actions.login(user.uid));
+                // Default recipes
+                store.dispatch(actions.startAddRecipe('Soy Chicken', 'http://del.h-cdn.co/assets/15/51/1450278988-honey-soy-chicken.jpg', '', ''));
+                store.dispatch(actions.startAddRecipe('Filipino Pork Adobo', 'http://salu-salo.com/wp-content/uploads/2015/04/Pork-Adobo-3.jpg', '', ''));
+                store.dispatch(actions.startAddRecipe('Peanut Butter & Jelly', 'http://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/7/25/4/FNM_090112-Peanut-Butter-and-Jelly-Sandwich-Cake-Recipe_s4x3.jpg.rend.hgtvcom.616.462.suffix/1382541616148.jpeg', '', ''));
+                store.dispatch(actions.startAddRecipe('Tuna Casserole', 'https://blog.bestbullysticks.com/wp-content/uploads/2011/03/tunacas1.jpg', '', ''));
                 store.dispatch(actions.startAddRecipes());
                 this.setState({
                     auth: true
