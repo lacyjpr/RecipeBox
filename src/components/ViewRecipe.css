@@ -16,7 +16,7 @@
   padding-top: 10px;
   padding: 10px;
   text-align: center;
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .view-modal h3 {
@@ -26,12 +26,13 @@
 
 .view-modal h4 {
   padding: 0;
-  margin: 0;
+  margin: 5px;
 }
 
 .view-modal p {
   padding: 0;
   margin: 0;
+  font-size: 12px;
 }
 
 .img {
@@ -53,7 +54,7 @@
   color: #ffffff;
 }
 
-@media (min-height: 680px) {
+@media (min-height: 650px) {
   .img {
     display: inline-block;
   }
