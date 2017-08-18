@@ -60,4 +60,17 @@
   .add-modal {
     width: 35vw;
   }
+
+  .add-input {
+    width: 34vw;
+  }
+
+  #ingreds {
+    width: 34vw;
+  }
+
+  #instructions {
+    width: 34vw;
+  }
+
 }
