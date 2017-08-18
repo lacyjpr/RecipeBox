@@ -16,7 +16,7 @@ export const recipesReducer = (state = [], action) => {
     case 'ADD_RECIPE':
         return [
             ...state,
-            action.recipe,
+            action.recipe
         ];
     case 'ADD_RECIPES':
         return [
