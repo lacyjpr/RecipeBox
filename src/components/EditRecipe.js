@@ -47,18 +47,18 @@ class EditRecipe extends React.Component {
                             <input type="text" className="edit-input" ref="imageURL" defaultValue={this.props.imageURL}/>
                         </div>
                         <div>
-                            <label htmlFor="ingreds">Ingredients:</label>
+                            <label htmlFor="edit-ingreds">Ingredients:</label>
                             <textarea id="edit-ingreds" ref="ingredients">{this.props.ingredients}</textarea>
                         </div>
                         <div>
-                            <label htmlFor="instructions">Directions:</label>
+                            <label htmlFor="edit-instructions">Directions:</label>
                             <textarea id="edit-instructions" ref="directions">{this.props.directions}</textarea>
                         </div>
                          
-                        <button className="edit-save">Save</button>
+                        <button className="edit-save-btn">Save</button>
                     </form>
-                    <div className="footer">
-                        <button className="edit-close" onClick={this.props.onClose}>Close</button>
+                    <div className="edit-footer">
+                        <button className="edit-close-btn" onClick={this.props.onClose}>Close</button>
                     </div>
                 </div>
             </div>
