@@ -48,11 +48,11 @@ class EditRecipe extends React.Component {
                         </div>
                         <div>
                             <label htmlFor="edit-ingreds">Ingredients:</label>
-                            <textarea id="edit-ingreds" ref="ingredients">{this.props.ingredients}</textarea>
+                            <textarea id="edit-ingreds" ref="ingredients" defaultValue={this.props.ingredients}></textarea>
                         </div>
                         <div>
                             <label htmlFor="edit-instructions">Directions:</label>
-                            <textarea id="edit-instructions" ref="directions">{this.props.directions}</textarea>
+                            <textarea id="edit-instructions" ref="directions" defaultValue={this.props.directions}></textarea>
                         </div>
                          
                         <button className="edit-save-btn">Save</button>
