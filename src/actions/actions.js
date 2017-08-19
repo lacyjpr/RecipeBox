@@ -53,7 +53,7 @@ export const startAddRecipe = (recipeName, imageURL, ingredients, directions) =>
         return recipeRef.then(() => {
             dispatch(addRecipe({
                 ...recipe,
-                id: recipeRef.key
+                id: recipeRef.key 
             }));
         });
     };
